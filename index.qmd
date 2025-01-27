@@ -1,5 +1,5 @@
 ---
-title: "Programa Nacional de Prevención y Control de las ETVs de México 2024 | CENAPRECE"
+title: "Programa Nacional de Prevención y Control de las ETVs de México 2025 | CENAPRECE"
 format: 
   dashboard:
     scrolling: true
@@ -163,7 +163,7 @@ densnv::mp_treemap(country = TRUE,
 ```{r casos_serotipos,out.width="100%", out.height="100%"}
 library(magrittr)
 boldenr::plot_state_serotype(dataset = x, 
-                                  year = 2024, 
+                                  year = 2025, 
                                   x_serotype  = 0.5, 
                                   y_serotype = 0.17, 
                                   scale_serotype = 1.7)
@@ -184,7 +184,7 @@ heatmap_confirmados(dataset = x,
 
 #### [**Casos Confirmados por Estado**]{style="color:blue"}
 
-```{r bumpmap_national_2024, out.width="100%", out.height="90%"}
+```{r bumpmap_national, out.width="100%", out.height="90%"}
 path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
 
 den2024 <- data.table::fread(path_sinave,
