@@ -3,7 +3,6 @@ title: "Programa Nacional de Prevención y Control de las ETVs de México 2025 |
 format: 
   dashboard:
     scrolling: true
-    logo: https://www.gob.mx/cms/uploads/action_program/main_image/26942/post_post_portadavectores.gif
     nav-buttons: [twitter, github, facebook]
 theme: custom.scss     
 ---
@@ -31,7 +30,7 @@ source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiolog
 
 ## Column {.tabset}
 
-### [**Mapas de Riesgo de Transmisión**]{style="color:#990000"}
+### [**Mapas de Riesgo de Transmisión**]{style="color:#611232"}
 
 ```{r dengue_risk_map_2025}
 
@@ -117,7 +116,7 @@ mex_link |>
 
 
 
-### [**Panorama Epidemiológico Dengue**]{style="color:#990000"}
+### [**Panorama Epidemiológico Dengue**]{style="color:#611232"}
 
 <html>
 
@@ -142,7 +141,7 @@ mex_link |>
 </p>
 
 ::: {style="display: grid; width: 1px; grid-template-columns: 550px 550px; align-items: start; justify-content: space-between;"}
-#### [**Treemap de casos confirmados**]{style="color:blue"}
+#### [**Treemap de casos confirmados**]{style="color:#611232"}
 
 ```{r treemap_national, out.width="100%", out.height="100%"}
 path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
@@ -160,7 +159,7 @@ densnv::mp_treemap(country = TRUE,
 
 <div>
 
-#### [**Casos confirmados y serotipos**]{style="color:blue"}
+#### [**Casos confirmados y serotipos**]{style="color:#611232"}
 
 ```{r casos_serotipos,out.width="100%", out.height="100%"}
 library(magrittr)
@@ -174,7 +173,7 @@ boldenr::plot_state_serotype(dataset = x,
 </div>
 :::
 
-#### [**Casos Confirmados por Estado**]{style="color:blue"}
+#### [**Casos Confirmados por Estado**]{style="color:#611232"}
 
 ```{r heatmap_confirmados_state}
 heatmap_confirmados(dataset = x, 
@@ -184,7 +183,7 @@ heatmap_confirmados(dataset = x,
                     EDO = TRUE)
 ```
 
-#### [**Casos Confirmados por Estado**]{style="color:blue"}
+#### [**Casos Confirmados por Estado**]{style="color:#611232"}
 
 ```{r bumpmap_national, out.width="100%", out.height="90%"}
 path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
@@ -205,7 +204,7 @@ static_bump_map(dataset = den2024,
                 pal_vir = "viridis")
 ```
 
-#### [**Casos Confirmados por Municipio**]{style="color:blue"}
+#### [**Casos Confirmados por Municipio**]{style="color:#611232"}
 
 ```{r heatmap_confirmados_mun}
 heatmap_dengue(dataset = x,
@@ -215,7 +214,7 @@ heatmap_dengue(dataset = x,
                status = 2)
 ```
 
-#### [**Casos Hospitalizados por Municipio**]{style="color:blue"}
+#### [**Casos Hospitalizados por Municipio**]{style="color:#611232"}
 
 ```{r heatmap_hospitalizados_mun}
 heatmap_dengue(dataset = x,
@@ -224,7 +223,7 @@ heatmap_dengue(dataset = x,
                hospitalizados = TRUE)
 ```
 
-#### [**Canal Epidemiológico por Estado**]{style="color:blue"}
+#### [**Canal Epidemiológico por Estado**]{style="color:#611232"}
 
 ```{r epidemiological_channel_by_state}
 epidemiological_channel(data = x)

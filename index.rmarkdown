@@ -1,0 +1,273 @@
+---
+title: "Programa Nacional de Prevención y Control de las ETVs de México 2025 | CENAPRECE"
+format: 
+  dashboard:
+    scrolling: true
+    nav-buttons: [twitter, github, facebook]
+theme: custom.scss     
+---
+
+```{r setup, echo=FALSE}
+# Step 1. load the dengue dataset ####
+path <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2024/DENGUE2_.txt"
+x <- denhotspots::read_dengue_dataset(path = path,
+                                      spatial_resolution = "country",
+                                      status_caso = c(1, 2)) |>
+    dplyr::filter(ANO == 2024)
+
+# Step 2. load the functions ####
+source("~/Dropbox/r_developments/r_new_functions/3.Functions/heatmap_confirmados.R")
+source("~/Dropbox/r_developments/r_new_functions/3.Functions/heatmap_hospitalizados.R")
+source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/heatmap_dengue.R")
+source("~/Dropbox/r_developments/r_new_functions/3.Functions/static_bump_map.R")
+source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiological_channel.R")
+```
+
+
+
+
+# **Programa de Prevención y Control de las Arbovirosis**
+
+## Column {.tabset}
+
+### [**Mapas de Riesgo de Transmisión**]{style="color:#611232"}
+
+
+
+```{r dengue_risk_map_2025}
+
+
+# Step 1. load the AGEE ####
+mex <- rgeomex::AGEE_inegi19_mx
+
+# Step 3. make the tible link ####
+link <- tibble::tibble(CVE_ENT = c("01","02", "03", "04", "05",
+                                   
+                                   "06", "07", "09", "10",
+                                   
+                                   "11", "12", "14", "15",
+                                   
+                                   "16", "17", "18", "19", "20",
+                                   
+                                   "21", "23", "24", "25",
+                                   
+                                   "26", "27", "28", "30",
+                                   
+                                   "31", "32"),
+                       link = c( # 01, 02, 03, 04, 05
+                           "https://effervescent-phoenix-422bc2.netlify.app",
+                           "https://scintillating-daifuku-835184.netlify.app",
+                           "https://gleaming-horse-ecd652.netlify.app",
+                           "https://fastidious-crumble-b37f6b.netlify.app",
+                           "https://fancy-boba-899ee9.netlify.app",
+                           
+                           # 06, 07, 08, 09, 10
+                           "https://effulgent-buttercream-86be70.netlify.app",
+                           "https://merry-rabanadas-6871ae.netlify.app",
+                           #NA,
+                           "https://cheery-macaron-f13158.netlify.app",
+                           "https://meek-medovik-f4feae.netlify.app",
+                           
+                           # 11, 12, 13, 14, 15
+                           "https://fantastic-sunburst-343660.netlify.app",
+                           "https://loquacious-maamoul-aa9286.netlify.app",
+                           #NA,
+                           "https://gorgeous-moxie-6e218f.netlify.app",
+                           "https://spiffy-jalebi-5a2ecb.netlify.app",
+                           
+                           # 16, 17, 18, 19, 20
+                           "https://fabulous-mermaid-31ea6a.netlify.app",
+                           "https://hilarious-zuccutto-7bf80c.netlify.app",
+                           "https://lucky-panda-744c1f.netlify.app",
+                           "https://dashing-douhua-6a4e76.netlify.app",
+                           "https://frabjous-bienenstitch-cc1dbe.netlify.app",
+                           
+                           # 21, 22, 23, 24, 25
+                           "https://spectacular-kringle-a40e04.netlify.app", # puebla
+                           #NA,# 22 queteraro
+                           "https://dazzling-marshmallow-a952b2.netlify.app", # quintana roo
+                           "https://mellifluous-kashata-03f82a.netlify.app",
+                           "https://rad-starlight-5b6727.netlify.app",
+                           
+                           # 26, 27, 28, 29 30
+                           "https://curious-yeot-89bc7a.netlify.app",
+                           "https://wonderful-tiramisu-d812c8.netlify.app",
+                           "https://peppy-valkyrie-33e65e.netlify.app",
+                           #NA, # 29 tlaxcala
+                           "https://glowing-trifle-5f0837.netlify.app",
+                           
+                           # 31, 32
+                           "https://jocular-croissant-637cbb.netlify.app",
+                           "https://peaceful-pegasus-cda4c9.netlify.app"))
+
+# Step 3. left joint ####
+mex_link <- dplyr::left_join(x = link,
+                             y = mex,
+                             by = "CVE_ENT") |>
+    dplyr::mutate(Estado = paste0(": <a href=", 
+                                  link,">", 
+                                  NOMGEO, "</a>")) |>
+    as.data.frame() |>
+    sf::st_set_geometry(value = "geometry") 
+
+mex_link |>
+    mapview::mapview(popup = "Estado",
+                     legend = FALSE,
+                     col.regions = "#E01A59")
+```
+
+
+
+
+
+### [**Panorama Epidemiológico Dengue**]{style="color:#611232"}
+
+<html>
+
+<head>
+
+
+
+```{=html}
+<style>
+</style>
+```
+
+
+</head>
+
+<body>
+
+<div>
+
+<h2>
+
+</h2>
+
+<p>
+
+</p>
+
+::: {style="display: grid; width: 1px; grid-template-columns: 550px 550px; align-items: start; justify-content: space-between;"}
+#### [**Treemap de casos confirmados**]{style="color:#611232"}
+
+
+
+```{r treemap_national, out.width="100%", out.height="100%"}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+x <- data.table::fread(path_sinave,
+                       #select = vect_cols2,
+                       encoding = "Latin-1",
+                       quote="",
+                       fill=TRUE)
+
+densnv::mp_treemap(country = TRUE,
+                   year = 2025,
+                   snv_dataset = x)
+
+```
+
+
+
+<div>
+
+#### [**Casos confirmados y serotipos**]{style="color:#611232"}
+
+
+
+```{r casos_serotipos,out.width="100%", out.height="100%"}
+library(magrittr)
+boldenr::plot_state_serotype(dataset = x, 
+                                  year = 2025, 
+                                  x_serotype  = 0.5, 
+                                  y_serotype = 0.17, 
+                                  scale_serotype = 1.7)
+```
+
+
+
+</div>
+:::
+
+#### [**Casos Confirmados por Estado**]{style="color:#611232"}
+
+
+
+```{r heatmap_confirmados_state}
+heatmap_confirmados(dataset = x, 
+                    year = 2025, 
+                    size_text = 3, 
+                    alpha_text = .2,
+                    EDO = TRUE)
+```
+
+
+
+#### [**Casos Confirmados por Estado**]{style="color:#611232"}
+
+
+
+```{r bumpmap_national, out.width="100%", out.height="90%"}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+
+den2024 <- data.table::fread(path_sinave,
+                             #select = vect_cols2,
+                             encoding = "Latin-1",
+                             quote="",
+                             fill=TRUE)
+static_bump_map(dataset = den2024,
+                year = "2025",
+                state = TRUE,
+                size_text_value = 2,
+                size_text = 2,
+                country_text_x = 0.5,
+                country_text_y = 0.8,
+                line_size = 1.5,
+                pal_vir = "viridis")
+```
+
+
+
+#### [**Casos Confirmados por Municipio**]{style="color:#611232"}
+
+
+
+```{r heatmap_confirmados_mun}
+heatmap_dengue(dataset = x,
+               state = NULL,
+               year = "2025",
+               hospitalizados = FALSE,
+               status = 2)
+```
+
+
+
+#### [**Casos Hospitalizados por Municipio**]{style="color:#611232"}
+
+
+
+```{r heatmap_hospitalizados_mun}
+heatmap_dengue(dataset = x,
+               state = NULL,
+               year = "2025",
+               hospitalizados = TRUE)
+```
+
+
+
+#### [**Canal Epidemiológico por Estado**]{style="color:#611232"}
+
+
+
+```{r epidemiological_channel_by_state}
+epidemiological_channel(data = x)
+```
+
+
+
+</div>
+
+</body>
+
+</html>
+
