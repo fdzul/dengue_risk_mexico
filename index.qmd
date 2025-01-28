@@ -231,7 +231,9 @@ mex_link <- dplyr::left_join(x = link,
 mex_link |>
     mapview::mapview(popup = "Estado",
                      legend = FALSE,
-                     col.regions = "#e6d194")
+                     color = "#e6d194", 
+                     alpha.regions = 1,
+                     col.regions = "#691C32")
 ```
 
 
