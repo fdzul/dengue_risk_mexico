@@ -6,9 +6,13 @@ mex <- rgeomex::AGEE_inegi19_mx
 link <- tibble::tibble(CVE_ENT = c("12", "14", "17",
                                    "19", "25", "28",
                                    "30"),
-                       link = c(
-                           
-                           "https://lively-kheer-564a7a.netlify.app"))
+                       link = c("https://resonant-kashata-f1c416.netlify.app",
+                                "https://mellow-mandazi-537284.netlify.app",
+                                "https://teal-smakager-e3e1f8.netlify.app",
+                                "https://dynamic-manatee-676bea.netlify.app",
+                                "https://dancing-chimera-609535.netlify.app",
+                                "https://lively-kheer-564a7a.netlify.app",
+                                "https://lively-puppy-3e7ab9.netlify.app"))
 
 # Step 3. left joint ####
 mex_link <- dplyr::left_join(x = link,
