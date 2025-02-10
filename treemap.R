@@ -39,12 +39,12 @@ x <- data.table::fread(path_sinave,
 
 densnv::mp_treemap(country = FALSE,
                    year = 2025,
-                   cve_edo = 2,
+                   cve_edo = 3,
                    snv_dataset = x)
 
 densnv::mp_treemap(country = FALSE,
                    year = 2025,
-                   cve_edo = 7,
+                   cve_edo = 24,
                    snv_dataset = x)
 
 
