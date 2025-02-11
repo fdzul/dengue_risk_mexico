@@ -159,7 +159,7 @@ mex <- rgeomex::AGEE_inegi19_mx
 
 # Step 3. make the tible link ####
 link <- tibble::tibble(CVE_ENT = c("03", "06", "07",
-                                   "11", "12", "14", "17",
+                                   "11", "12", "14", "16","17",
                                    "18","19", "24","25", "28",
                                    "30", "31"),
                        link = c("https://silver-brigadeiros-18fba9.netlify.app",  # 03
@@ -168,6 +168,7 @@ link <- tibble::tibble(CVE_ENT = c("03", "06", "07",
                                 "https://sunny-snickerdoodle-18c3e8.netlify.app", # 11
                                 "https://resonant-kashata-f1c416.netlify.app", # 12
                                 "https://mellow-mandazi-537284.netlify.app",   # 14
+                                "https://stirring-gaufre-078309.netlify.app",
                                 "https://teal-smakager-e3e1f8.netlify.app",    # 17
                                 "https://extraordinary-platypus-d850ef.netlify.app", # 18
                                 "https://dynamic-manatee-676bea.netlify.app",  # 19
