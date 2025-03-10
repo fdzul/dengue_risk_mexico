@@ -11,11 +11,11 @@ theme: custom.scss
 
 ```{r setup, echo=FALSE}
 # Step 1. load the dengue dataset ####
-path <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2024/DENGUE2_.txt"
+path <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
 x <- denhotspots::read_dengue_dataset(path = path,
                                       spatial_resolution = "country",
                                       status_caso = c(1, 2)) |>
-    dplyr::filter(ANO == 2024)
+    dplyr::filter(ANO == 2025)
 
 # Step 2. load the functions ####
 source("~/Dropbox/r_developments/r_new_functions/3.Functions/heatmap_confirmados.R")
@@ -103,12 +103,12 @@ heatmap_confirmados(dataset = x,
 ```{r bumpmap_national, out.width="100%", out.height="90%"}
 path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
 
-den2024 <- data.table::fread(path_sinave,
+den2025 <- data.table::fread(path_sinave,
                              #select = vect_cols2,
                              encoding = "Latin-1",
                              quote="",
                              fill=TRUE)
-static_bump_map(dataset = den2024,
+static_bump_map(dataset = den2025,
                 year = "2025",
                 state = TRUE,
                 size_text_value = 2,
@@ -141,7 +141,7 @@ heatmap_dengue(dataset = x,
 #### [**Canal Epidemiológico por Estado**]{style="color:#611232"}
 
 ```{r epidemiological_channel_by_state}
-epidemiological_channel(data = x)
+epidemiological_channel(data = x, year = "2025")
 ```
 
 </div>
