@@ -11,12 +11,12 @@ theme: custom.scss
 
 ```{r setup, echo=FALSE}
 # Step 1. load the dengue dataset ####
-path <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
-x <- denhotspots::read_dengue_dataset(path = path,
-                                      spatial_resolution = "country",
-                                      status_caso = c(1, 2)) |>
-    dplyr::filter(ANO == 2025)
-
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+x <- data.table::fread(path_sinave,
+                       #select = vect_cols2,
+                       encoding = "Latin-1",
+                       quote="",
+                       fill=TRUE)
 # Step 2. load the functions ####
 source("~/Dropbox/r_developments/r_new_functions/3.Functions/heatmap_confirmados.R")
 source("~/Dropbox/r_developments/r_new_functions/3.Functions/heatmap_hospitalizados.R")
@@ -56,21 +56,6 @@ source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiolog
 </p>
 
 ::: {style="display: grid; width: 1px; grid-template-columns: 550px 550px; align-items: start; justify-content: space-between;"}
-#### [**Treemap de casos confirmados**]{style="color:#611232"}
-
-```{r treemap_national, out.width="100%", out.height="100%"}
-path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
-x <- data.table::fread(path_sinave,
-                       #select = vect_cols2,
-                       encoding = "Latin-1",
-                       quote="",
-                       fill=TRUE)
-
-densnv::mp_treemap(country = TRUE,
-                   year = 2025,
-                   snv_dataset = x)
-
-```
 
 <div>
 
@@ -141,6 +126,12 @@ heatmap_dengue(dataset = x,
 #### [**Canal Epidemiológico por Estado**]{style="color:#611232"}
 
 ```{r epidemiological_channel_by_state}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+x <- data.table::fread(path_sinave,
+                       #select = vect_cols2,
+                       encoding = "Latin-1",
+                       quote="",
+                       fill=TRUE)
 epidemiological_channel(data = x, year = "2025")
 ```
 
