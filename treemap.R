@@ -4,7 +4,7 @@ x <- data.table::fread(path_sinave,
                        encoding = "Latin-1",
                        quote="",
                        fill=TRUE)
-extrafont::loadfonts(quiet = TRUE)
+#extrafont::loadfonts(quiet = TRUE)
 densnv::mp_treemap(country = TRUE,
                    year = 2025,
                    snv_dataset = x)

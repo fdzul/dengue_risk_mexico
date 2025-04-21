@@ -57,6 +57,28 @@ source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiolog
 
 ::: {style="display: grid; width: 1px; grid-template-columns: 550px 550px; align-items: start; justify-content: space-between;"}
 
+
+<div>
+
+#### [**Casos confirmados**]{style="color:#611232"}
+
+```{r treemap,out.width="100%", out.height="100%"}
+path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+x <- data.table::fread(path_sinave,
+                       #select = vect_cols2,
+                       encoding = "Latin-1",
+                       quote="",
+                       fill=TRUE)
+#extrafont::loadfonts(quiet = TRUE)
+densnv::mp_treemap(country = TRUE,
+                   year = 2025,
+                   snv_dataset = x)
+```
+
+
+</div>
+
+
 <div>
 
 #### [**Casos confirmados y serotipos**]{style="color:#611232"}
@@ -71,6 +93,9 @@ boldenr::plot_state_serotype(dataset = x,
 ```
 
 </div>
+
+
+
 :::
 
 #### [**Casos Confirmados por Estado**]{style="color:#611232"}
