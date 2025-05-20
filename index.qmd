@@ -105,6 +105,7 @@ boldenr::plot_state_serotype(dataset = x,
 heatmap_confirmados(dataset = x, 
                     year = 2025, 
                     size_text = 3, 
+                    state = TRUE,
                     alpha_text = .2,
                     EDO = TRUE)
 ```
@@ -184,7 +185,8 @@ link <- tibble::tibble(CVE_ENT = c("03", "04", "05",
                                    "10", "11", "12", "13","14", 
                                    "16","17", "18","19",
                                    
-                                   "21","22","23","24","25", "28",
+                                   "21","22","23","24","25", "27",
+                                   "28",
                                    "30", "31"),
                        link = c("https://silver-brigadeiros-18fba9.netlify.app",  # 03
                                 "https://wondrous-starship-ed88b7.netlify.app",   # 04
@@ -205,6 +207,7 @@ link <- tibble::tibble(CVE_ENT = c("03", "04", "05",
                                 "https://sprightly-boba-449091.netlify.app", #23
                                 "https://dynamic-ganache-253e5c.netlify.app",  # 24
                                 "https://dancing-chimera-609535.netlify.app",  # 25
+                                "active_transmission_mx_2025_27_tabasco",      #27
                                 "https://lively-kheer-564a7a.netlify.app",     # 28
                                 "https://lively-puppy-3e7ab9.netlify.app",     # 30
                                 "https://rad-scone-4e2f40.netlify.app"))
