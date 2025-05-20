@@ -11,7 +11,8 @@ theme: custom.scss
 
 ```{r setup, echo=FALSE}
 # Step 1. load the dengue dataset ####
-path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
+
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
                        encoding = "Latin-1",
@@ -63,7 +64,7 @@ source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiolog
 #### [**Casos confirmados**]{style="color:#611232"}
 
 ```{r treemap,out.width="100%", out.height="100%"}
-path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
                        encoding = "Latin-1",
@@ -111,7 +112,7 @@ heatmap_confirmados(dataset = x,
 #### [**Casos Confirmados por Estado**]{style="color:#611232"}
 
 ```{r bumpmap_national, out.width="100%", out.height="90%"}
-path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
 
 den2025 <- data.table::fread(path_sinave,
                              #select = vect_cols2,
@@ -122,7 +123,7 @@ static_bump_map(dataset = den2025,
                 year = "2025",
                 state = TRUE,
                 size_text_value = 2,
-                size_text = 2,
+                size_text_country = 2,
                 country_text_x = 0.5,
                 country_text_y = 0.8,
                 line_size = 1.5,
@@ -145,13 +146,14 @@ heatmap_dengue(dataset = x,
 heatmap_dengue(dataset = x,
                state = NULL,
                year = "2025",
+               status = 1,
                hospitalizados = TRUE)
 ```
 
 #### [**Canal Epidemiológico por Estado**]{style="color:#611232"}
 
 ```{r epidemiological_channel_by_state}
-path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
                        encoding = "Latin-1",
