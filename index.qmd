@@ -64,6 +64,7 @@ source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiolog
 #### [**Casos confirmados**]{style="color:#611232"}
 
 ```{r treemap,out.width="100%", out.height="100%"}
+# paso 1. subir la base
 path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
@@ -71,6 +72,7 @@ x <- data.table::fread(path_sinave,
                        quote="",
                        fill=TRUE)
 #extrafont::loadfonts(quiet = TRUE)
+# paso 2. hacer el treemap
 densnv::mp_treemap(country = TRUE,
                    year = 2025,
                    snv_dataset = x)
