@@ -180,17 +180,21 @@ mex <- rgeomex::AGEE_inegi19_mx
 
 # Step 3. make the tible link ####
 # Step 3. make the tible link ####
-link <- tibble::tibble(CVE_ENT = c("03", "04", "05",
+link <- tibble::tibble(CVE_ENT = c("01","03", "04", "05",
                                    
                                    
                                    "06", "07", 
                                    "10", "11", "12", "13","14", 
-                                   "16","17", "18","19",
+                                   "15",
+                                   "16","17", "18","19", "20",
                                    
-                                   "21","22","23","24","25", "27",
+                                   "21","22","23","24","25", 
+                                   "26",
+                                   "27",
                                    "28",
                                    "30", "31"),
-                       link = c("https://silver-brigadeiros-18fba9.netlify.app",  # 03
+                       link = c("https://lucent-gelato-64e151.netlify.app",       #01
+                                "https://silver-brigadeiros-18fba9.netlify.app",  # 03
                                 "https://wondrous-starship-ed88b7.netlify.app",   # 04
                                 "https://remarkable-rolypoly-18acc6.netlify.app", #05
                                 "https://voluble-jalebi-cfd0c7.netlify.app",      # 06
@@ -200,15 +204,18 @@ link <- tibble::tibble(CVE_ENT = c("03", "04", "05",
                                 "https://resonant-kashata-f1c416.netlify.app", # 12
                                 "https://flourishing-cheesecake-4ae7d6.netlify.app", # 12
                                 "https://mellow-mandazi-537284.netlify.app",   # 14
+                                "https://fabulous-kitten-12b397.netlify.app",  # 15
                                 "https://stirring-gaufre-078309.netlify.app",
                                 "https://teal-smakager-e3e1f8.netlify.app",    # 17
                                 "https://extraordinary-platypus-d850ef.netlify.app", # 18
                                 "https://dynamic-manatee-676bea.netlify.app",  # 19
+                                "https://incomparable-bonbon-e6a68f.netlify.app", #20
                                 "https://fancy-starlight-7a6013.netlify.app",  # 21
                                 "https://glittering-wisp-947281.netlify.app", # 22
                                 "https://sprightly-boba-449091.netlify.app", #23
                                 "https://dynamic-ganache-253e5c.netlify.app",  # 24
                                 "https://dancing-chimera-609535.netlify.app",  # 25
+                                "https://moonlit-buttercream-d7430d.netlify.app", #26
                                 "active_transmission_mx_2025_27_tabasco",      #27
                                 "https://lively-kheer-564a7a.netlify.app",     # 28
                                 "https://lively-puppy-3e7ab9.netlify.app",     # 30
