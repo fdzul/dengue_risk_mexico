@@ -11,7 +11,7 @@ theme: custom.scss
 
 ```{r setup, echo=FALSE}
 # Step 1. load the dengue dataset ####
-path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
 
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
@@ -65,17 +65,19 @@ source("~/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiolog
 
 ```{r treemap,out.width="100%", out.height="100%"}
 # paso 1. subir la base
-path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
                        encoding = "Latin-1",
                        quote="",
                        fill=TRUE)
-#extrafont::loadfonts(quiet = TRUE)
+extrafont::loadfonts(quiet = TRUE)
 # paso 2. hacer el treemap
-densnv::mp_treemap(country = TRUE,
-                   year = 2025,
-                   snv_dataset = x)
+library(ggplot2)
+library(grid)
+#densnv::mp_treemap(country = TRUE,
+#                   year = 2025,
+#                   snv_dataset = x)
 ```
 
 
@@ -115,7 +117,7 @@ heatmap_confirmados(dataset = x,
 #### [**Casos Confirmados por Estado**]{style="color:#611232"}
 
 ```{r bumpmap_national, out.width="100%", out.height="90%"}
-path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
 
 den2025 <- data.table::fread(path_sinave,
                              #select = vect_cols2,
@@ -156,7 +158,7 @@ heatmap_dengue(dataset = x,
 #### [**Canal Epidemiológico por Estado**]{style="color:#611232"}
 
 ```{r epidemiological_channel_by_state}
-path_sinave <- "/Users/felipedzul/OneDrive/datasets/DGE/denv/2025/DENGUE2_.txt"
+path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
                        encoding = "Latin-1",
