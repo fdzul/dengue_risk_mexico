@@ -1,11 +1,15 @@
-path_sinave <- "/Users/felipedzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/denv/2025/DENGUE2_.txt"
+#path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
+path_sinave <- "/Users/fdzul/Downloads/DENGUE2_.txt"
+#file.choose()
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
                        encoding = "Latin-1",
                        quote="",
                        fill=TRUE)
 
-#extrafont::loadfonts(quiet = TRUE)
+extrafont::loadfonts(quiet = TRUE)
+library(ggplot2)
+library(grid)
 densnv::mp_treemap(country = TRUE,
                    year = 2025,
                    snv_dataset = x)
