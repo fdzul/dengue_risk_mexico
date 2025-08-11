@@ -11,8 +11,7 @@ theme: custom.scss
 
 ```{r setup, echo=FALSE}
 # Step 1. load the dengue dataset ####
-#path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
-path_sinave <- "/Users/fdzul/Downloads/DENGUE2_.txt"
+path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
                        encoding = "Latin-1",
