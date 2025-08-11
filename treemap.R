@@ -1,5 +1,5 @@
-#path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
-path_sinave <- "/Users/fdzul/Downloads/DENGUE2_.txt"
+path_sinave <- "/Users/fdzul/Library/CloudStorage/Dropbox/dataset/dge/DENGUE2_.txt"
+#path_sinave <- "/Users/fdzul/Downloads/DENGUE2_.txt"
 #file.choose()
 x <- data.table::fread(path_sinave,
                        #select = vect_cols2,
